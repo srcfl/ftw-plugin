@@ -147,7 +147,7 @@ def main():
         if p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest() != digest:
             fail(f"openai/package/{rel}: changed since the reviewed 1.3.0 package")
 
-    shared = check_skills(ROOT / "skills", r"chatgpt|openai|codex")
+    shared = check_skills(ROOT / "skills", r"chatgpt|openai|codex|claude|anthropic|cursor|grok|xai|\.cursor/|\.claude/|\.codex/")
     reviewed = check_skills(pkg / "skills", None)
     if shared != reviewed:
         fail(f"skills differ: shared {shared}, ChatGPT package {reviewed}")

@@ -20,4 +20,4 @@ jobs:
         with:
           node-version: "22"
       - name: Claude Code plugin validation
-        run: npx -y @anthropic-ai/claude-code@latest plugin validate .
+        run: npx -y @anthropic-ai/claude-code@2.1.310 plugin validate .

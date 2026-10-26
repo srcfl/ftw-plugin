@@ -17,6 +17,9 @@ sums = {}
 for line in (ROOT / "openai/SHA256SUMS").read_text().splitlines():
     digest, rel = line.split(maxsplit=1)
     sums[rel.removeprefix("./")] = digest
+on_disk = {p.relative_to(PKG).as_posix() for p in PKG.rglob("*") if p.is_file()}
+if on_disk != set(sums):
+    sys.exit(f"openai/package does not match openai/SHA256SUMS: extra {sorted(on_disk - set(sums))}, missing {sorted(set(sums) - on_disk)}")
 for rel, digest in sums.items():
     if hashlib.sha256((PKG / rel).read_bytes()).hexdigest() != digest:
         sys.exit(f"{rel} differs from openai/SHA256SUMS; update the sums only for a new OpenAI submission")

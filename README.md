@@ -41,8 +41,8 @@ assistant opens FTW Cloud's sign-in page; you then approve the assistant in FTW.
 | Cursor | From the Cursor Marketplace once listed. Until then, copy this repository to `~/.cursor/plugins/local/ftw` and reload the window, or add the address as an MCP server. |
 | Claude Code | `/plugin marketplace add srcfl/ftw-plugin`, then `/plugin install ftw@ftw`. Or `claude mcp add --transport http -s user ftw "https://cloud.ftw.energy/mcp?profile=public"` for the server alone. |
 | Claude (web, desktop, mobile) | Settings → Connectors → Add custom connector, with the address above and no client ID. |
-| ChatGPT | Install FTW from the plugin directory once OpenAI has listed it. Until then, add the address as a custom app in developer mode. |
-| Codex | `codex plugin marketplace add srcfl/ftw-plugin`, then `codex plugin add ftw@ftw`. Or `codex mcp add ftw --url "https://cloud.ftw.energy/mcp?profile=public"`, then `codex mcp login ftw`. |
+| ChatGPT | Install FTW from the plugin directory once OpenAI has listed it. Until then, add the address as a custom MCP server from the Plugins page (some workspaces need developer mode turned on first). |
+| Codex | `codex plugin marketplace add srcfl/ftw-plugin`, then `codex plugin add ftw@ftw` (or `/plugins` inside Codex). Or `codex mcp add ftw --url "https://cloud.ftw.energy/mcp?profile=public"`, then `codex mcp login ftw`. |
 
 ## Network and data
 
