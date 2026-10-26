@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "ftw": { "type": "http", "url": "https://cloud.ftw.energy/mcp?profile=public" }
+  }
+}

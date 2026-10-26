@@ -1,0 +1,11 @@
+{
+  "name": "ftw",
+  "displayName": "FTW",
+  "version": "0.1.0",
+  "description": "FTW is Sourceful's open-source home energy software that you run yourself. This plugin helps you install and set up FTW, explains your home's energy flow, plans, history and equipment health, and, only with your approval in FTW, runs short bounded EV charging.",
+  "author": { "name": "Sourceful Labs AB", "url": "https://ftw.sourceful.energy" },
+  "homepage": "https://ftw.sourceful.energy",
+  "license": "MIT",
+  "keywords": ["ftw", "sourceful", "energy", "solar", "battery", "ev charging"],
+  "icon": "./assets/logo.png"
+}
