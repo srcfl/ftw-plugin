@@ -20,5 +20,5 @@ Use as a sequential verification plan, not a permission to control equipment. Fo
 
 - Confirm plan availability, accurate price zone and source, grid/fuse limits, reserve rules and EV charging goals if relevant. Only assert savings when measured histories and tariff terms support it.
 - After safe commissioning check FTW runtime health, devices, planner, logs, backup and recovery procedure. Perform a scheduled reboot and verify readings and control ownership afterward.
-- Optional: enable FTW Cloud by owner choice; only then connect the assistant (for example Grok Bot or Cursor) via OAuth and grant appropriate scopes. Validate `homes_list`, live data, health and planner with real tool outputs.
+- Optional: enable FTW Cloud by owner choice; only then connect the AI assistant via OAuth and grant appropriate scopes. Validate `homes_list`, live data, health and planner with real tool outputs.
 - Deliver a short handover: host and software version (no secrets), devices, permissions, known data gaps, backup location (not credentials) and one next action.

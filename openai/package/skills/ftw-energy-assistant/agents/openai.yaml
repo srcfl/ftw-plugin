@@ -1,0 +1,6 @@
+interface:
+  display_name: FTW Energy Assistant
+  short_description: Analyze home energy and FTW optimization
+  default_prompt: Show my current FTW energy flows, data freshness, and next 24-hour battery plan without making changes.
+policy:
+  allow_implicit_invocation: true

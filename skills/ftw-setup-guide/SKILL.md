@@ -56,4 +56,4 @@ The plugin does not provide a hosted remote deployment service. FTW Cloud's cons
 - "I have an old Docker FTW installation. Help me move safely to the current version."
 - "Can I use FTW alongside Home Assistant and my OCPP charger?"
 - "Guide me through adding a meter, inverter and battery to FTW."
-- "How do I connect my FTW box to Grok Bot safely?"
+- "How do I connect my FTW box to my AI assistant safely?"

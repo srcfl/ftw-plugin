@@ -1,11 +1,45 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ftw",
-  "version": "0.1.0",
-  "description": "FTW is Sourceful's open-source home energy software that you run yourself. This plugin helps you install and set up FTW, explains your home's energy flow, plans, history and equipment health, and, only with your approval in FTW, runs short bounded EV charging.",
-  "author": { "name": "Sourceful Labs AB", "url": "https://ftw.sourceful.energy" },
+  "version": "1.3.0",
+  "description": "Set up FTW, explain home energy and plans, and check equipment health with owner-approved access.",
+  "author": {
+    "name": "Sourceful Labs AB",
+    "url": "https://ftw.sourceful.energy"
+  },
   "homepage": "https://ftw.sourceful.energy",
   "repository": "https://github.com/srcfl/ftw-plugin",
   "license": "MIT",
-  "keywords": ["ftw", "sourceful", "energy", "home energy", "solar", "battery", "ev charging", "ems"]
+  "keywords": [
+    "FTW",
+    "home energy",
+    "solar",
+    "battery",
+    "electric vehicle",
+    "Raspberry Pi",
+    "setup",
+    "optimization"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "FTW",
+        "shortDescription": "Home energy setup and insights",
+        "longDescription": "FTW helps compatible solar, batteries, meters and EV chargers work together through a local controller. The Setup Guide helps you install a box, choose supported equipment and commission it. After you start assistant setup on the local box and approve separate setup and diagnostic access, ChatGPT can guide the draft, validation, reviewed save and restart through named tools. With owner-approved FTW Cloud access, the Energy Assistant explains power, battery and car state, history, plans and equipment health. Extra grants enable redacted logs, settings and bounded measurement evidence. Past power trends alone do not prove exact energy or savings. Short charging actions need a matching grant and your request. Lasting goals and car schedules wait for owner approval in FTW. The public connection provides 27 named tools and no arbitrary API reader, backup export or SSH access. Core keeps final control and safety checks on the box. Sourceful Labs AB publishes and maintains FTW. No purchases or payments. The connection cannot expose credentials, token metadata, signing-key details or backup exports.",
+        "developerName": "Sourceful Labs AB",
+        "category": "Other",
+        "defaultPrompt": [
+          "Help me install FTW on a fresh Raspberry Pi at home.",
+          "Explain my current energy flow and the next 24 hours of FTW planning.",
+          "Diagnose why my FTW battery or inverter is not responding."
+        ],
+        "websiteURL": "https://ftw.sourceful.energy/chatgpt",
+        "supportURL": "https://ftw.sourceful.energy/chatgpt#support",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/icon.png",
+        "privacyPolicyURL": "https://ftw.sourceful.energy/privacy",
+        "termsOfServiceURL": "https://ftw.sourceful.energy/plugin-terms"
+      }
+    }
+  }
 }

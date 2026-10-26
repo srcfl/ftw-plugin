@@ -1,0 +1,14 @@
+120f748c9c91625aad59d8eb69cc8b8c073dffd1f7f87be65b24b692acde90ad  ./assets/ftw-icon-512.png
+9d92705f68113ed32b31efaa2c8eb0b5104175dde2b54d266d12292967657a5e  ./assets/ftw-icon-96.png
+94b2e6f2650d735e7031e52df649bf04b1a5f0e84cc420f287bc0473a686c073  ./mcp.json
+3d344fef5f9ed5f7c22535e02ec5ca0fe91c2bac5a502b259b13a1c4ac7f88de  ./plugin.json
+ffa5d5c513ec6f4d2d9721c0bce2ac223ae7b386e8bd2311525c1fda778e809a  ./skills/ftw-energy-assistant/SKILL.md
+453e841484cb0f2f3f65f34356950090eee042be7217699659221e4aa56a8b4d  ./skills/ftw-energy-assistant/agents/openai.yaml
+da0e44baf17fd6122194c1cd069d81fa4adc521eadb0e5589400aa6199bedb41  ./skills/ftw-energy-assistant/references/control-and-grants.md
+5f0cbe919c3812a158a838a81f4cceb331c046c85dc2e5cdbd6c914861f431ca  ./skills/ftw-energy-assistant/references/diagnostics-runbook.md
+169032840ab8884a7c06243feb68dc9d6a70fd9b737fa54a29e7eeeaf4974a51  ./skills/ftw-energy-assistant/references/power-and-economics.md
+1e8bcdd732efce0e93f055942cf6d2bcaf614e0942ccdc84f0635991f302c7b9  ./skills/ftw-setup-guide/SKILL.md
+dd7075a2a0f18d58383bcae1c967bf7ede830d0e66bc0d0e5653833e17696625  ./skills/ftw-setup-guide/agents/openai.yaml
+7c2b06f4a6b1219d7ec6969b16a76060700590388be107c1037ce3435c4ac22f  ./skills/ftw-setup-guide/references/chatgpt-connection.md
+049364df23abee70e1748edfc5702c863acd091d41ac49d017630ca114cbe39f  ./skills/ftw-setup-guide/references/commissioning-checklist.md
+f2c715bd0a50769b2315f98d95d0f6a40ff7e1531eb81dece71e1dad264bc5f1  ./skills/ftw-setup-guide/references/installation-runbook.md
