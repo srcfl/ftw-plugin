@@ -27,12 +27,15 @@ Sourceful does not use it to train AI models).
 ## Sign-in for each assistant
 
 FTW Cloud accepts redirect URIs that use https, or http to localhost, 127.0.0.1 or ::1 on any
-port. It refuses custom schemes such as `cursor://`.
+port, plus exactly one custom-scheme URI: Cursor's `cursor://anysphere.cursor-mcp/oauth/callback`
+(byte for byte, since srcfl/ftw-cloud#53). It refuses every other custom scheme. PKCE S256 is
+required for all of them.
 
 - Claude (web, desktop, mobile): `https://claude.ai/api/mcp/auth_callback`. Accepted.
 - Claude Code and Codex CLI: a loopback address. Accepted.
 - ChatGPT: https callbacks on chatgpt.com. Accepted; the 1.3.0 review used them.
 - Grok Bot and Cursor's cloud agents: `https://www.cursor.com/agents/mcp/oauth/callback`. Accepted
   if that is the URI they register.
-- Cursor desktop: if it registers `cursor://anysphere.cursor-mcp/oauth/callback`, FTW Cloud refuses
-  the registration. Test in a real Grok Bot and in Cursor desktop before submitting.
+- Cursor desktop: `cursor://anysphere.cursor-mcp/oauth/callback`. Accepted. The consent page shows it
+  as a program on this computer and asks the owner to approve only if they started it. Test in a
+  real Grok Bot and in Cursor desktop before submitting.
