@@ -1,0 +1,23 @@
+name: check
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  manifests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema==4.23.0
+      - run: python3 scripts/check.py
+      - run: python3 scripts/build-chatgpt-package.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Claude Code plugin validation
+        run: npx -y @anthropic-ai/claude-code@2.1.310 plugin validate .
