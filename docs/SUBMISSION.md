@@ -20,7 +20,7 @@ submits; nothing here has been sent.
 | 9 | MCP Server URL or Public GitHub Repository * (200) | https://github.com/srcfl/ftw-plugin |
 | 10 | Brief Description * (600) | below |
 | 11 | Testing Instructions * (600) | below; the login is filled in at submission |
-| 12 | "I've tested this plugin locally and in-app" * | tick only after a real connection in Grok Bot and in Cursor desktop |
+| 12 | "I've tested this plugin locally and in-app" * | Grok Bot: tested 30 Oct 2026 (see Testing). Cursor desktop: not yet tested; tick only after the Cursor steps below pass |
 
 The repository is the better answer to field 9: it carries the MCP address, both skills, the logo,
 the terms and privacy links and the MIT license. The MCP address alone is
@@ -88,3 +88,58 @@ required for all of them.
 - Cursor desktop: `cursor://anysphere.cursor-mcp/oauth/callback`. Accepted. The consent page shows it
   as a program on this computer and asks the owner to approve only if they started it. Test in a
   real Grok Bot and in Cursor desktop before submitting.
+
+## Testing
+
+What was really run, and what is still open. Times are Europe/Stockholm (CET).
+
+### Grok Bot: tested, 30 Oct 2026, 14:45–14:55 CET
+
+Run from a Grok Bot session that already had FTW connected through FTW Cloud's OAuth sign-in, as
+two connections to a real home (not the reviewer home):
+
+- the public profile (`https://cloud.ftw.energy/mcp?profile=public`), and
+- a connection with the owner's diagnostic grant.
+
+| Check | Result |
+|---|---|
+| List tools, public profile | 27 tools, the count in field 10 |
+| List tools, diagnostic connection | 29 tools: the same 27 plus `api_catalog` and `api_read` |
+| `health_get` (public) | OK: version v0.157.3-beta.1, drivers 2 ok / 0 degraded / 0 faulted / 0 offline, meter live, no control block |
+| `homes_list` (public) | OK: scopes `ftw.live.read`, `ftw.plan.read`, `ftw.history.read`, `ftw.health.read`; no operations; caps 0 W; grant expiry shown |
+| `status` (diagnostic connection) | OK: live grid, solar, battery, car and load readings with sources and ages |
+| `plan_get` hours=3 (diagnostic connection) | OK: 15-minute slots with battery and grid power, price and reason codes |
+| `api_catalog` (diagnostic connection) | OK: route list, running version and source links |
+| Errors | none |
+
+Only read tools were called. No control, goal or setup tool was called. Readings from the home are
+not copied here.
+
+Not covered by this run: a fresh sign-in from zero, the invitation-code path on
+https://review.ftw.energy, and the two skills' wording in Grok Bot.
+
+### Static checks: passed, 30 Oct 2026
+
+- `python3 scripts/check.py` (with `jsonschema`): "All manifests check out."
+- `.cursor-plugin/plugin.json`: name `ftw`, version 1.3.0, MIT, logo `assets/logo.png`.
+- `mcp.json` (`streamable-http`) and `.mcp.json` (`http`) both point at
+  `https://cloud.ftw.energy/mcp?profile=public`.
+- Unsigned `initialize` to that URL returns 401 with `WWW-Authenticate: Bearer resource_metadata=…`
+  and the four read scopes, so a client can discover sign-in.
+- `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server` answer, with
+  PKCE S256, dynamic client registration and client ID metadata documents supported.
+
+### Cursor desktop: not yet tested
+
+Nobody has run the plugin in Cursor desktop yet. Fredrik runs this before ticking field 12:
+
+1. In Cursor desktop, add the plugin from this repository (or add the MCP server
+   `https://cloud.ftw.energy/mcp?profile=public` under Settings → MCP).
+2. Start sign-in. The browser opens FTW Cloud's consent page. It should name the program as one on
+   this computer (`cursor://anysphere.cursor-mcp/oauth/callback`).
+3. Pick "I have an invitation code", create a read-only invitation at https://review.ftw.energy
+   (or approve your own box), and paste the code.
+4. Check that Cursor returns to the app and shows FTW as connected with 27 tools.
+5. In chat, ask "How is my home's energy right now?" and "Show today's plan". Check that `status`
+   and `plan_get` answer without errors.
+6. Write the date, the Cursor version and the result in this section.
